@@ -14,7 +14,6 @@ def forecast():
     soup = bs(page.content, 'html.parser')
     weather = soup.find(id="APP")
     today_weather = weather.find(class_="today_nowcard-main")
-    #location = today_weather.find(class_="loc-container").get_text()
     location = today_weather.find(class_="today_nowcard-location").get_text()
     time_stamp = today_weather.find(class_="today_nowcard-timestamp").get_text()
     temp = today_weather.find(class_="today_nowcard-temp").get_text()
@@ -42,7 +41,7 @@ def forecast():
 
 
 #repeats the code every x seconds/minutes/hours/days
-schedule.every(5).seconds.do(forecast)
+schedule.every(2).hours.do(forecast)
 
 while True:
     schedule.run_pending()
