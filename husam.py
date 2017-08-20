@@ -41,68 +41,6 @@ def forecast():
     file1.close()
 
 
-
-
-"""
-#Gets prayer times
-def prayer_times():
-    website = requests.get('https://www.islamicfinder.org/world/canada/6173331/vancouver-prayer-times/')
-    soup1 = bs(website.content, 'html.parser')
-    times = soup1.find(id="prayerTimeFilter")
-    prayers = times.find_all(class_="todayPrayer")
-
-    isDate = soup1.find(id="main-column")
-    storeDate = isDate.find_all(class_="large-6")
-    islamicDate = storeDate[1]
-    hijriDate = islamicDate.find(class_="dateToday").get_text()
-    print (hijriDate)
-
-    fajr = prayers[0]
-    fajrName = fajr.find(class_="todayPrayerName").get_text()
-    fajrTime = fajr.find(class_="todayPrayerTime").get_text()
-    fajrToday = fajrName + ":" + fajrTime
-    print (fajrName,":" ,fajrTime)
-
-    duhr = prayers[2]
-    duhrName = duhr.find(class_="todayPrayerName").get_text()
-    duhrTime = duhr.find(class_="todayPrayerTime").get_text()
-    duhrToday = duhrName + ":" + duhrTime
-    print (duhrName,":" ,duhrTime)
-
-    asr = prayers[3]
-    asrName = asr.find(class_="todayPrayerName").get_text()
-    asrTime = asr.find(class_="todayPrayerTime").get_text()
-    asrToday = asrName + ":" + asrTime
-    print (asrName,":" ,asrTime)
-
-    maghrib = prayers[4]
-    maghName = maghrib.find(class_="todayPrayerName").get_text()
-    maghTime = maghrib.find(class_="todayPrayerTime").get_text()
-    maghToday = maghName + ":" + maghTime
-    print (maghName,":" ,maghTime)
-
-    isha = prayers[5]
-    ishaName = isha.find(class_="todayPrayerName").get_text()
-    ishaTime = isha.find(class_="todayPrayerTime").get_text()
-    ishaToday = ishaName + ":" + ishaTime
-    print (ishaName,":" ,ishaTime)
-    print()
-"""
-
-""" #Stores information in a file
-    path = os.path.join('/Users/husammohammad/Desktop') #changes the directory to the desktop
-
-    file1 = open(join(path, 'prayers.txt'), 'w+')
-    file1.write(hijriDate + "\n")
-    file1.write(fajrToday + "\n")
-    file1.write(duhrToday + "\n")
-    file1.write(asrToday + "\n")
-    file1.write(maghToday + "\n")
-    file1.write(ishaToday)
-    file1.close()
-"""
-
-
 #repeats the code every x seconds/minutes/hours/days
 schedule.every(5).seconds.do(forecast)
 
